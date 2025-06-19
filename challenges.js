@@ -30,9 +30,9 @@ console.log (calculateLateFee(10, 0.25))
 // Extra Task:
 // - Convert the function into a function expression.
 
-const calculateLateFee = function (numOfdays, overduerate)
+const calculatelatefee = function (numOfdays, overduerate)
 {return numOfdays * overduerate};
-console.log(calculateLateFee(20, 0.25));
+console.log(calculatelatefee(20, 0.25));
 
 
 
@@ -59,19 +59,19 @@ Output: "Red: You are passionate and bold."
 const FavColor = prompt ("Please enter your favorite color")
 
 function findColorMeaning(FavColor)
-{if FavColor === blue{
+{if (FavColor === "blue"){
    return "You love calm and peace.";
    
 } 
-else if FavColor === red 
+else if (FavColor === "red") 
 {
    return "You are passionate and bold.";
 }
-else if FavColor === green
+else if (FavColor === "green")
 {
    return "You are connected to nature.";
 }
-    else if FavColor === yellow
+    else if (FavColor === "yellow")
     {
       return "You radiate happiness and energy.";
        }
@@ -85,7 +85,7 @@ console.log(findColorMeaning(FavColor));
 // Extra Task:
 // - Rewrite the function using an arrow function.
 
-const FavColor2 = prompt ("Enter your favorite color").toLowerCase()
+const FavColor2 = prompt ("Enter your favorite color")
 
 const findColorMeaning2=(FavColor2) =>
 FavColor2 === "blue"?  "You love calm and peace.":
@@ -175,47 +175,117 @@ markAttendance(studentName, isPresent);
 // Extra Task:
 // - Convert the function into a function expression.
 
-const studentName = prompt("Student Name");
-const isPresent = prompt("Are you present? Please type yes or no");
+const studentname = prompt("Student Name");
+const ispresent = prompt("Are you present? Please type yes or no");
 
-const markAttendance = function(studentName, isPresent) 
+const markattendance = function(studentname, ispresent) 
  {
-  if (isPresent === "yes") 
+  if (ispresent === "yes") 
    {
     console.log(`${studentName} is present`);
   } 
   else
    {
-    console.log(`${studentName} is absent`);
+    console.log(`${studentname} is absent`);
   }
 };
 
-markAttendance(studentName, isPresent);
+markAttendance(studentname, ispresent);
+
+
+//STRETCH TASK: Student Grade Report Generator 🏈🏈🏈🏈
+
+//You are a teacher, and you want to automate the creation of detailed grade reports for your class. Write a program that includes the following steps:
+
+//1. Write a function called `calculateAverage` that takes three test scores (numbers) as parameters and returns the average of those scores.
+
+
+
+const calculateAverage = function (test1,test2,test3)
+  {return (test1 + test2 + test3) /3};
+
+const average = calculateAverage (79,85,92)
+console.log(`The average test score is ${average.toFixed(2)}`)
+
+
+//2. Write another function called `determineGrade` that takes the average score as a parameter and returns the letter grade based on the following rules:
+//   - "A" for average scores of 90 and above
+//   - "B" for scores between 80 and 89
+//   - "C" for scores between 70 and 79
+//   - "F" for scores below 70
+const determineGrade = function(average)
+{
+if (average >= 90 && average <= 100)
+  {
+    console.log ("Grade A")
+  }
+
+else if (average >= 80 && average <= 89)
+  {
+    console.log("Grade B")
+}
+
+  else if (average >= 70 && average <= 79)
+{
+    console.log("Grade C")
+}
+
+  else if (average < 70)
+  {
+    console.log("Grade F")
+}
+else
+ {
+  console.log ("Invalid")
+}
+}
+
+console.log(determineGrade(69))
+
 
 /*
-STRETCH TASK: Student Grade Report Generator 🏈🏈🏈🏈
-
-You are a teacher, and you want to automate the creation of detailed grade reports for your class. Write a program that includes the following steps:
-
-1. Write a function called `calculateAverage` that takes three test scores (numbers) as parameters and returns the average of those scores.
-
-
-
-2. Write another function called `determineGrade` that takes the average score as a parameter and returns the letter grade based on the following rules:
-   - "A" for average scores of 90 and above
-   - "B" for scores between 80 and 89
-   - "C" for scores between 70 and 79
-   - "F" for scores below 70
-
 3. Write a third function called `generateReport` that:
    - Takes a student's name and three test scores as parameters.
    - Uses `calculateAverage` to calculate the average score.
    - Uses `determineGrade` to find the letter grade.
    - Returns a full report string in this format:
      "[StudentName] - Average Score: [average], Grade: [letterGrade]"
+     */
+const calculateAverage2 = function (t1, t2, t3) {
+  return (t1 + t2 + t3) / 3;
+};
 
-4. Finally, use the `prompt` function to input the student’s name and three test scores, and display the generated report using `console.log`.
+const determineGrade2 = function (average2) {
+  if (average2 >= 90 && average2 <= 100) {
+    return "A";
+  } else if (average2 >= 80 && average2 <= 89) {
+    return "B";
+  } else if (average2 >= 70 && average2 <= 79) {
+    return "C";
+  } else {
+    
+    return "F";
+  }
+};
 
+const generateReport = function (studentName3, score1, score2, score3) {
+  const average2 = calculateAverage2(score1, score2, score3);
+  const letterGrade = determineGrade2(average2);
+  return `${studentName3} - Average Score: ${average2}, Grade: ${letterGrade}`;
+};
+
+console.log(generateReport("Amina", 85, 90, 78));
+
+
+
+//4. Finally, use the `prompt` function to input the student’s name and three test scores, and display the generated report using `console.log`.
+
+const studentName3 = prompt("Enter student name:");
+const t1 = Number(prompt("Enter score for Test 1:"));
+const t2 = Number(prompt("Enter score for Test 2:"));
+const t3 = Number(prompt("Enter score for Test 3:"));
+
+/*
 Example:
 User Input:
 Name: Amina
@@ -224,6 +294,9 @@ Scores: 85, 90, 78
 Output:
 "Amina - Average Score: 84.33, Grade: B"
 
+*/
+
+/*
 Extra Credit:
 - Extend the program to accept multiple students' names and scores and generate a report for each student using a loop.
 - Use an arrow function for at least one of the functions.
